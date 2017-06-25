@@ -1,0 +1,8 @@
+﻿@model object
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+<div id="my-spa" asp-prerender-module="Client/dist/main-server" asp-prerender-data='new { viewBag = @ViewBag??"" }'></div>
