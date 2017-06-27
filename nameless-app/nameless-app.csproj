@@ -5,7 +5,7 @@
   <ItemGroup>
     <Folder Include="Client\dist" />
     <Folder Include="wwwroot\" />
-    <Folder Include="wwwroot\assets" />
+    <Folder Include="wwwroot\assets\images\wireframe" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore" Version="1.1.2" />
@@ -17,5 +17,8 @@
       <Version>1.1.2</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="1.1.2" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Client\containers\ProjectsContainer.js" />
   </ItemGroup>
 </Project>

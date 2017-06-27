@@ -7,7 +7,7 @@ import * as ReactDOM from 'react-dom';
 
 const Dumb = () => (
     <div>
-        Hello world from dumb component (Resource)
+        Hello world from dumb component (Resource) #3
     </div>
 );
 

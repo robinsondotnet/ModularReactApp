@@ -3,8 +3,12 @@
  */
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import Dumb from './components/dumb';
+import ProjectsContainer from "./containers/ProjectsContainer";
+import PageContainer from "./containers/PageContainer";
 
-
-ReactDOM.render(<Dumb />, document.getElementById('my-spa'));
+ReactDOM.render(
+    <PageContainer>
+        <ProjectsContainer/>
+    </PageContainer>, 
+    document.getElementById('my-spa'));
     

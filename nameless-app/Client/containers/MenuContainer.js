@@ -18,30 +18,14 @@ export default class MenuContainer extends Component {
   const { activeItem } = this.state;
 
   return (
-  <Sidebar as={Menu} width='thin' icon='labeled' inverted animation='push' visible={true} vertical>
+  <Sidebar as={Menu} width='thin' icon='labeled' inverted animation='overlay' visible={true} vertical>
    <Menu.Item>
    <Input placeholder='Search...' />
    </Menu.Item>
 
-   <Menu.Item>
-   Home
-
-   <Menu.Menu>
-   <Menu.Item name='search' active={activeItem === 'search'} onClick={this.handleItemClick}>
-   Search
-   </Menu.Item>
-   <Menu.Item name='add' active={activeItem === 'add'} onClick={this.handleItemClick}>
-   Add
-   </Menu.Item>
-   <Menu.Item name='about' active={activeItem === 'about'} onClick={this.handleItemClick}>
-   Remove
-   </Menu.Item>
-   </Menu.Menu>
-   </Menu.Item>
-
-   <Menu.Item name='browse' active={activeItem === 'browse'} onClick={this.handleItemClick}>
+   <Menu.Item name='projects' active={activeItem === 'projects'} onClick={this.handleItemClick}>
    <Icon name='grid layout' />
-   Browse
+   Projects
    </Menu.Item>
    <Menu.Item name='messages' active={activeItem === 'messages'} onClick={this.handleItemClick}>
    Messages

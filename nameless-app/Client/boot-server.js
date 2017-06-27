@@ -7,8 +7,9 @@ import AppContainer from './containers/AppContainer';
 
 import { createServerRenderer } from 'aspnet-prerendering';
 
-import { Segment, Sidebar } from 'semantic-ui-react';
-import MenuContainer from "./containers/MenuContainer"; 
+import { Segment, Sidebar, Grid } from 'semantic-ui-react';
+import MenuContainer from "./containers/MenuContainer";
+import MenuExampleStackable from "./containers/MenuExampleStackable"; 
 
 export default createServerRenderer(params => {
  return new Promise((resolve, reject) => {
@@ -16,10 +17,19 @@ export default createServerRenderer(params => {
              <AppContainer> 
                     <MenuContainer/>
        <Sidebar.Pusher>
+                 <MenuExampleStackable/>
+     <Grid>
+     <Grid.Row>
+     <Grid.Column width={2} >
+     </Grid.Column>
+     <Grid.Column width={14} >
         <Segment basic>
             <div dangerouslySetInnerHTML={{__html: params.data.body}} >
             </div>
         </Segment>
+     </Grid.Column>
+     </Grid.Row>
+     </Grid>
        </Sidebar.Pusher>
             </AppContainer>
      );
