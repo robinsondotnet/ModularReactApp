@@ -9,6 +9,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "common", "common", "{3255A2
 EndProject
 Project("{AA5D51D2-B52F-4246-8A8A-D8F97B842954}") = "app.utils", "app.utils\app.utils.csproj", "{F7CC950A-7517-48B2-820C-9B4AC6C4ED2A}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SSO", "SSO", "{54C5920B-6285-4206-BC96-14B2A54A52A4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "modules", "modules", "{2BDCFD6D-A815-4E85-A777-53C36A933F24}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,5 +33,6 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{F7CC950A-7517-48B2-820C-9B4AC6C4ED2A} = {3255A2D9-71AA-4231-9384-08CD023D1242}
+		{51E24575-E1B9-47F2-8674-AAA097149F22} = {54C5920B-6285-4206-BC96-14B2A54A52A4}
 	EndGlobalSection
 EndGlobal

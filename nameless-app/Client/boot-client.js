@@ -6,5 +6,5 @@ import * as ReactDOM from 'react-dom';
 import Dumb from './components/dumb';
 
 
-ReactDOM.render(<Dumb />, document.getElementById('resource-container'));
+ReactDOM.render(<Dumb />, document.getElementById('my-spa'));
     

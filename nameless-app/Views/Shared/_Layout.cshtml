@@ -1,13 +1,18 @@
-﻿<!DOCTYPE html>
+﻿@using System.Text.Encodings.Web
+<!DOCTYPE html>
 
 <html>
 <head>
     <title>title</title>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.2/semantic.min.css"></link>
 </head>
-<body>
-<div id="main-container">
-    @RenderBody()
-</div>
-<script src="main.js"></script>
+@{
+    var body = RenderBody();
+    var writer = new System.IO.StringWriter();
+    body.WriteTo(writer, HtmlEncoder.Default);
+}
+<body id="main-container" 
+      asp-prerender-module="Client/dist/main-server" 
+      asp-prerender-data='new { ViewBag = @ViewBag??"", Body = @writer.ToString()}'>
 </body>
 </html>

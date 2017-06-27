@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.AspNetCore.SpaServices.Webpack;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -63,7 +59,7 @@ namespace nameless_app
             {
                 app.UseWebpackDevMiddleware(new WebpackDevMiddlewareOptions
                 {
-//                    ConfigFile = "server.webpack.config.js",
+                    ConfigFile = "server.webpack.config.js",
                     HotModuleReplacement = true,
                     ReactHotModuleReplacement = true,
                     HotModuleReplacementClientOptions = new Dictionary<string, string>
