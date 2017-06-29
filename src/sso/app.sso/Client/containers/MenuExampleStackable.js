@@ -15,16 +15,11 @@ export default class MenuExampleStackable extends Component {
 
   return (
   <Menu stackable>
-      <Menu.Item />
-      <Menu.Item />
-      <Menu.Item />
-     <Menu.Item />
-     <Menu.Item />
-   <Menu.Item>
+   <Menu.Menu position='right'>
+    <Menu.Item>
    <Image src='https://avatars1.githubusercontent.com/u/7469931?v=3&s=40' avatar />
    <span>Kento's Page</span>
    </Menu.Item>
-   <Menu.Menu >
      <Menu.Item>
       <Button primary>
         Send a message

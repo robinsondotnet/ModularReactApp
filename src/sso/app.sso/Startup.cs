@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using app.utils.Middlewares;
+using app.utils.Providers;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.SpaServices.Webpack;
@@ -29,12 +30,9 @@ namespace app.sso
             // Add framework services.
             services.AddMvc();
             
-//            services.AddNodeServices(options =>
-//            {
-//                options.LaunchWithDebugging = true;
-//                options.DebuggingPort = 9229;
-//            });
-            
+            // This service going to store response from other module applications(mostly .net mvc apps)
+            services.AddTransient<IResponseProvider, RemoteResponseProvider>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -57,6 +55,7 @@ namespace app.sso
                     name: "spa-fallback",
                     defaults: new { controller = "Home", action = "Index" });
             });
+            
 
             if (env.IsDevelopment())
             {
