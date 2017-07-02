@@ -43,7 +43,7 @@ namespace app.sso
             
             app.UseStaticFiles();
 
-            app.UseModularApplication();
+            app.UseModularApplication(new ModularApplicationMiddlewareOptions());
             
             app.UseMvc(routes =>
             {

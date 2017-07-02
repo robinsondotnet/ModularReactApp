@@ -26,9 +26,5 @@
       <Project>{f7cc950a-7517-48b2-820c-9b4ac6c4ed2a}</Project>
       <Name>app.utils</Name>
     </ProjectReference>
-    <ProjectReference Include="..\common\app.utils\app.utils.csproj">
-      <Project>{f7cc950a-7517-48b2-820c-9b4ac6c4ed2a}</Project>
-      <Name>app.utils</Name>
-    </ProjectReference>
   </ItemGroup>
 </Project>

@@ -22,7 +22,7 @@ export default class MenuExampleStackable extends Component {
    </Menu.Item>
      <Menu.Item>
       <Button primary>
-        Send a message
+        Send me a message
       </Button>
      </Menu.Item>
    </Menu.Menu>

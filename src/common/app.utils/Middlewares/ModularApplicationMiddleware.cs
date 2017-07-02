@@ -2,7 +2,6 @@
 using System.Threading.Tasks;
 using app.utils.Providers;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace app.utils.Middlewares
@@ -12,7 +11,10 @@ namespace app.utils.Middlewares
         private readonly RequestDelegate _next;
         private IResponseProvider _provider;
 
-        public ModularApplicationMiddleware(RequestDelegate next, IResponseProvider provider = null)
+        public ModularApplicationMiddleware(
+            RequestDelegate next,
+            ModularApplicationMiddlewareOptions options,
+            IResponseProvider provider = null)
         {
             _next = next;
             

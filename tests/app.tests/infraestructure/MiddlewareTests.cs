@@ -19,7 +19,7 @@ namespace app.tests.infraestructure
             var middleware = new ModularApplicationMiddleware((innerHttpContext) =>
             {
                 return Task.CompletedTask;
-            }, provider);
+            }, new ModularApplicationMiddlewareOptions());
 
             await middleware.Invoke(new DefaultHttpContext());
 
