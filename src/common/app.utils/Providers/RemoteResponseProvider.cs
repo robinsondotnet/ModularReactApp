@@ -1,4 +1,7 @@
-﻿namespace app.utils.Providers
+﻿using System.Net.Http;
+using System.Threading.Tasks;
+
+namespace app.utils.Providers
 {
     public sealed class RemoteResponseProvider : IResponseProvider
     {
@@ -6,8 +9,13 @@
 
         public bool HasValue => !string.IsNullOrEmpty(_body);
 
-        public string GetBody()
+        public async Task<string> GetBodyAsync(string remoteUrl = null)
         {
+            if (string.IsNullOrEmpty(remoteUrl))
+            {
+                var tenant = new HttpClient();
+                return await tenant.GetStringAsync(remoteUrl);
+            }
             return _body;
         }
 

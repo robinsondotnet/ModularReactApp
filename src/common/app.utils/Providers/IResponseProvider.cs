@@ -1,10 +1,11 @@
-﻿namespace app.utils.Providers
+﻿using System.Threading.Tasks;
+
+namespace app.utils.Providers
 {
     public interface IResponseProvider
     {
         bool HasValue{get;}
-        string GetBody();
-        
+        Task<string> GetBodyAsync(string remoteUrl);
         void SetBody(string rawString);
 
     }

@@ -1,17 +1,28 @@
 {
     // See https://go.microsoft.com/fwlink/?LinkId=733558
     // for the documentation about the tasks.json format
-    "version": "0.1.0",
-    "command": "dotnet",
+    "version": "2.0.0",
+    "command": " ",
     "isShellCommand": true,
     "args": [],
     "tasks": [
         {
             "taskName": "build",
-            "args": [ ],
+            "command": "dotnet",
+            "args": [ "build" ],
             "isBuildCommand": true,
             "showOutput": "silent",
             "problemMatcher": "$msCompile"
+        },
+        {
+            "taskName": "test",
+            "command": "dotnet",
+            "args": ["test"],
+            "showOutput": "always",
+            "isTestCommand": true,
+            "options": {
+                "cwd": "${workspaceRoot}/tests/app.tests"
+            }
         }
     ]
 }

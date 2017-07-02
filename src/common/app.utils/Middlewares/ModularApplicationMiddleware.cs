@@ -22,18 +22,13 @@ namespace app.utils.Middlewares
 
         public async Task Invoke(HttpContext context)
         {
-            var provider = context.RequestServices.GetService<IResponseProvider>();
-            
-            
             var fullRequestPath = context.Request.Path;
             var requestPath = fullRequestPath.HasValue?fullRequestPath.Value.Replace("/", string.Empty):"";
             // Validate requestPath
             if (fullRequestPath.HasValue && _options.Endpoints.ContainsKey(requestPath))
             {
-                // Get Response from module applications
-                var tenant = new HttpClient();
-                var response = await tenant.GetStringAsync(_options.Endpoints[requestPath]);
-                // Set into IResponseProvider
+                var provider = context.RequestServices.GetService<IResponseProvider>();
+                var response = await provider.GetBodyAsync(_options.Endpoints[requestPath]);
                 provider.SetBody(response);
             }
             // Continue to the next action
