@@ -31,7 +31,7 @@ namespace app.sso
             services.AddMvc();
             
             // This service going to store response from other module applications(mostly .net mvc apps)
-            services.AddTransient<IResponseProvider, RemoteResponseProvider>();
+            services.AddScoped<IResponseProvider, RemoteResponseProvider>();
 
         }
 
@@ -43,7 +43,11 @@ namespace app.sso
             
             app.UseStaticFiles();
 
-            app.UseModularApplication(new ModularApplicationMiddlewareOptions());
+            app.UseModularApplication(new ModularApplicationMiddlewareOptions{
+                Endpoints = new Dictionary<string, string>{
+                    {"me", "http://localhost:5001"},
+                }
+            });
             
             app.UseMvc(routes =>
             {

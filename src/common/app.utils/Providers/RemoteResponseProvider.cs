@@ -4,6 +4,8 @@
     {
         private string _body;
 
+        public bool HasValue => !string.IsNullOrEmpty(_body);
+
         public string GetBody()
         {
             return _body;

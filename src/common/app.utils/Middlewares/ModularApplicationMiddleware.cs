@@ -9,37 +9,35 @@ namespace app.utils.Middlewares
     public class ModularApplicationMiddleware
     {
         private readonly RequestDelegate _next;
-        private IResponseProvider _provider;
+
+        private readonly ModularApplicationMiddlewareOptions _options;
 
         public ModularApplicationMiddleware(
             RequestDelegate next,
-            ModularApplicationMiddlewareOptions options,
-            IResponseProvider provider = null)
+            ModularApplicationMiddlewareOptions options)
         {
             _next = next;
-            
-            if (provider != null)
-                _provider = provider;
+            _options = options;
         }
 
-        public Task Invoke(HttpContext context)
+        public async Task Invoke(HttpContext context)
         {
-            if (_provider == null)
-                _provider = context.RequestServices.GetService<IResponseProvider>();
+            var provider = context.RequestServices.GetService<IResponseProvider>();
             
-            var requestPath = context.Request.Path;
             
+            var fullRequestPath = context.Request.Path;
+            var requestPath = fullRequestPath.HasValue?fullRequestPath.Value.Replace("/", string.Empty):"";
             // Validate requestPath
-            if (requestPath.HasValue && requestPath.Value.StartsWith("module1"))
+            if (fullRequestPath.HasValue && _options.Endpoints.ContainsKey(requestPath))
             {
                 // Get Response from module applications
                 var tenant = new HttpClient();
-                var response = tenant.GetStringAsync("http://localhost:5001/").Result;
+                var response = await tenant.GetStringAsync(_options.Endpoints[requestPath]);
                 // Set into IResponseProvider
-                _provider.SetBody(response);
+                provider.SetBody(response);
             }
             // Continue to the next action
-            return this._next.Invoke(context);
+            await this._next.Invoke(context);
         }
 
     }

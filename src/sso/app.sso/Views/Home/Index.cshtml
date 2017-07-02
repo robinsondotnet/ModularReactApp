@@ -1,10 +1,12 @@
-﻿@model object
+﻿@using app.utils.Providers;
+@inject IResponseProvider provider
 
 @{
     ViewBag.Title = "title";
     Layout = "_Layout";
+
+    var remoteString = provider.HasValue? provider.GetBody(): "";
 }
-
-<div id="my-spa"></div>
-
-<script src="main.js"></script>
+<div>
+@Html.Raw(remoteString)
+</div>
