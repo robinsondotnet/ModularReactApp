@@ -335,3 +335,5 @@ jspm_packages/
 # dotenv environment variables file
 .env
 
+main-server.js
+main.js
