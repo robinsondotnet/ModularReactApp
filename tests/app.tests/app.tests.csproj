@@ -1,20 +1,24 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>netcoreapp1.1</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.0.0"/>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.0.0" />
     <PackageReference Include="Moq">
       <Version>4.7.63</Version>
     </PackageReference>
-    <PackageReference Include="xunit" Version="2.2.0"/>
-    <PackageReference Include="xunit.runner.visualstudio" Version="2.2.0"/>
+    <PackageReference Include="xunit" Version="2.2.0" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.2.0" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\src\common\app.utils\app.utils.csproj">
       <Project>{f7cc950a-7517-48b2-820c-9b4ac6c4ed2a}</Project>
       <Name>app.utils</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\src\servers\bot.server\bot.server.csproj">
+      <Project>{c288bbdf-96df-4fca-b52d-30139d1125fb}</Project>
+      <Name>bot.server</Name>
     </ProjectReference>
   </ItemGroup>
 </Project>

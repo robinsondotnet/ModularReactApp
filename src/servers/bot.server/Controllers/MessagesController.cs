@@ -17,7 +17,7 @@ namespace bot.server.Controllers
             this.configuration = configuration;
         }
 
-//        [Authorize(Roles = "Bot")]
+        [Authorize(Roles = "Bot")]
         [HttpPost]
         public virtual async Task<ActionResult> Post([FromBody] Activity activity)
         {
