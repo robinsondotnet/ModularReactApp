@@ -14,5 +14,11 @@ namespace app.sso.Controllers
         {
             return View();
         }
+
+        publi ActionResult Test()
+        {
+            throw new NotImplementedException
+        }
+
     }
 }
